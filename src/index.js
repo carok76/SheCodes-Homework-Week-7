@@ -2,8 +2,14 @@ function displayTemp(response) {
   let currentTemp = document.querySelector("#current-temp-value");
   let temp = Math.round(response.data.temperature.current);
   let cityElement = document.querySelector("#current-city");
+  let currentTempIcon = document.querySelector("#current-temp-icon");
+  let humidity = document.querySelector("#humidity");
+  let windSpeed = document.querySelector("#wind-speed");
   cityElement.innerHTML = response.data.city;
   currentTemp.innerHTML = temp;
+  currentTempIcon.innerHTML = `<img src="${response.data.condition.icon_url}" alt="${response.data.condition.description}" />`;
+  humidity.innerHTML = response.data.temperature.humidity;
+  windSpeed.innerHTML = response.data.wind.speed;
 }
 
 function search(event) {
